@@ -4,6 +4,7 @@ import Bestsellers from "../components/Bestsellers";
 import Termos from "../components/termos";
 
 
+
 const Home = () => {
   return (
     <div>
