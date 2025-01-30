@@ -1,13 +1,15 @@
-import Colecao from "../components/Colecao"
-import Hero from "../components/Hero"
+import Colecao from "../components/Colecao";
+import Hero from "../components/Hero";
+import Bestsellers from "../components/Bestsellers";
 
 const Home = () => {
   return (
     <div>
-      <Hero/>
-      <Colecao/>
+      <Hero />
+      <Colecao />
+      <Bestsellers />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
