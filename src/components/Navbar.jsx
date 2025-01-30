@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between py-7 font-medium">
       {/* Logo */}
-      <img src={assets.logo} className="w-36" alt="logo" />
+      <img src={assets.vital_logo} className="w-36" alt="logo" />
 
       {/* Links de navegação */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -18,7 +18,7 @@ const Navbar = () => {
           to="/home"
           className="relative flex flex-col items-center gap-1 text-gray-700 hover:text-gray-900 after:content-[''] after:w-2/4 after:h-[2px] after:bg-gray-700 after:absolute after:bottom-[-3px] after:left-1/2 after:-translate-x-1/2 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
         >
-          Home
+          Início
         </NavLink>
 
         <NavLink
@@ -75,6 +75,10 @@ const Navbar = () => {
             <img src={assets.dropdown_icon} className="h-5 rotate-180" alt="" />
             <p>Voltar</p>
           </div>
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to='/Home'>Inicio</NavLink>
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to='/Colecao'>Coleção</NavLink>
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to='/Produtos'>Produtos</NavLink>
+          <NavLink onClick={() => setVisible(false)} className="py-2 pl-6 border" to='/Contato'>Contato</NavLink>
         </div>
       </div>
     </div>
