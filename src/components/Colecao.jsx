@@ -13,10 +13,9 @@ const Colecao = () => {
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl">
-        <Title text1={"Última"} text2={"Coleção"} />
+        <Title text1={"Últimas"} text2={"Novidades"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-          debitis accusantium impedit fugiat.
+        Acabou de chegar! Descubra a nova coleção que vai transformar seu visual.
         </p>
       </div>
       {/*PRODUTOS */}

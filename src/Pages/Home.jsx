@@ -11,6 +11,7 @@ const Home = () => {
       <Colecao />
       <Bestsellers />
       <Termos/>
+
     </div>
   );
 };

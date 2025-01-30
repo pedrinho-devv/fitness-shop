@@ -75,8 +75,10 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import vital_logo from './vital_logo.png'
 import hero_logo from './hero_logo.jpg'
+import vital_black from './vital_black.png'
 
 export const assets = {
+    vital_black,
     hero_logo,
     vital_logo,
     logo,

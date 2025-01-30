@@ -9,6 +9,7 @@ import Login from "../src/Pages/Login";
 import PlaceOrder from "../src/Pages/PlaceOrder";
 import Order from "../src/Pages/Order";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/finalizar-pedido" element={<PlaceOrder />} />
         <Route path="/pedido" element={<Order />} />
       </Routes>
+      <Footer/>
     </div>
   );
 };
