@@ -10,6 +10,7 @@ import PlaceOrder from "../src/Pages/PlaceOrder";
 import Order from "../src/Pages/Order";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 
 
@@ -18,8 +19,8 @@ const App = () => {
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/colecao" element={<Colecao />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Colecao" element={<Colecao />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/produtos" element={<Produtos />} />
@@ -27,8 +28,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/finalizar-pedido" element={<PlaceOrder />} />
         <Route path="/pedido" element={<Order />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Colecao/>
       <Footer/>
     </div>
   );
