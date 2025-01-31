@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/finalizar-pedido" element={<PlaceOrder />} />
         <Route path="/pedido" element={<Order />} />
       </Routes>
+      <Colecao/>
       <Footer/>
     </div>
   );
