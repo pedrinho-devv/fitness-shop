@@ -4,7 +4,7 @@ import { assets } from "../assets/assets"
 import Title from "../components/Title"
 import ProdutoItem from "../components/ProdutoItem"
 
-const Colecao = () => {
+const News = () => {
 
   const { products} = useContext(ShopContext)
   const [showFilter, setShowFilter] = useState(false)
@@ -77,4 +77,4 @@ const Colecao = () => {
   )
 }
 
-export default Colecao
+export default News

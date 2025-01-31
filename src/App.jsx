@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../src/Pages/Home";
-import Colecao from "./Pages/Colecao";
 import Sobre from "../src/Pages/Sobre";
 import Contato from "../src/Pages/Contato";
 import Produtos from "../src/Pages/Produtos";
@@ -10,7 +9,7 @@ import PlaceOrder from "../src/Pages/PlaceOrder";
 import Order from "../src/Pages/Order";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import NotFound from "./components/NotFound";
+import News from "./Pages/News";
 
 
 
@@ -20,7 +19,7 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="/Colecao" element={<Colecao />} />
+        <Route path="/News" element={News} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/produtos" element={<Produtos />} />
@@ -28,7 +27,6 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/finalizar-pedido" element={<PlaceOrder />} />
         <Route path="/pedido" element={<Order />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>
     </div>
