@@ -14,14 +14,14 @@ const Navbar = () => {
       {/* Links de navegação */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink
-          to="/home"
+          to="/Home"
           className="relative flex flex-col items-center gap-1 text-gray-700 hover:text-gray-900 after:content-[''] after:w-2/4 after:h-[2px] after:bg-gray-700 after:absolute after:bottom-[-3px] after:left-1/2 after:-translate-x-1/2 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
         >
           Início
         </NavLink>
 
         <NavLink
-          to="/coleção"
+          to="/News"
           className="relative flex flex-col items-center gap-1 text-gray-700 hover:text-gray-900 after:content-[''] after:w-2/4 after:h-[2px] after:bg-gray-700 after:absolute after:bottom-[-3px] after:left-1/2 after:-translate-x-1/2 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
         >
           Coleção
