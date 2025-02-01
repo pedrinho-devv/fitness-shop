@@ -36,6 +36,23 @@ const Sobre = () => {
           </p>
         </div>
       </div>
+      <div className="text-4xl py-4">
+        <Title text1={'Por que'} text2={'Escolher a gente?'}/>
+      </div>
+      <div className="flex flex-col md:flex-row text-sm mb-20">
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col ga-5">
+          <b>Qualidade e Durabilidade</b>
+          <p className="text-gray-600">Peças feitas com tecidos tecnológicos para máximo conforto e resistência.</p>
+        </div>
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col ga-5">
+          <b>Estilo e Versatilidadee</b>
+          <p className="text-gray-600">Designs modernos que combinam com seus treinos e o dia a dia.</p>
+        </div>
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col ga-5">
+          <b>Conforto e Performance</b>
+          <p  className="text-gray-600">Modelagem ergonômica para liberdade de movimento e alto desempenho.</p>
+        </div>
+      </div>
     </div>
   );
 };
