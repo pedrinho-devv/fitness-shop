@@ -111,16 +111,16 @@ const Navbar = () => {
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
-            to="/Colecao"
+            to="/News"
           >
             Coleção
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
-            to="/Produtos"
+            to="/Sobre"
           >
-            Produtos
+            Sobre Nós
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
