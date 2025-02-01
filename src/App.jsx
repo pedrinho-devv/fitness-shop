@@ -9,7 +9,7 @@ import PlaceOrder from "../src/Pages/PlaceOrder";
 import Order from "../src/Pages/Order";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import News from "./Pages/News";
+import News from "./Pages/News.jsx";
 
 
 
@@ -19,7 +19,7 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="/News" element={News} />
+        <Route path="/News" element={<News/>} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/produtos" element={<Produtos />} />
