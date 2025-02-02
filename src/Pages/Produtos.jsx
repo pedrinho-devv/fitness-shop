@@ -5,19 +5,19 @@ import { assets } from "../assets/assets";
 
 const Produtos = () => {
   const { produtosId } = useParams();
-  const { produtos } = useContext(ShopContext);
+  const { products } = useContext(ShopContext);
   const [produtosData, setProdutosData] = useState(null);
   const [image, setImage] = useState("");
 
   useEffect(() => {
-    if (produtos && produtos.length > 0) {
-      const foundProduct = produtos.find((item) => item._id.trim() === String(produtosId).trim());
+    if (products && products.length > 0) {
+      const foundProduct = products.find((item) => item._id.trim() === String(produtosId).trim());
       if (foundProduct) {
         setProdutosData(foundProduct);
         setImage(foundProduct.image?.[0] || ""); // Evita erro caso image seja undefined
       }
     }
-  }, [produtosId, produtos]);
+  }, [produtosId, products]);
 
   if (!produtosData) return <div>Carregando...</div>;
 
