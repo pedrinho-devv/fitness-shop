@@ -10,6 +10,7 @@ import Order from "../src/Pages/Order";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import News from "./Pages/News.jsx";
+import Search from "./components/Search.jsx";
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <Navbar/>
+      <Search/>
       <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="/News" element={<News/>} />
