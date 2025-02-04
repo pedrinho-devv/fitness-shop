@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 
@@ -7,8 +7,22 @@ export const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
-    const [cartItens, setCartItens] = useState({})
+    const [cartItens, setCartItens] = useState({});
+    const [totalContagem, setTotalContagem] = useState(0);
 
+    const incrementTotalContagem = () => {
+        for(const items in cartItens){
+            for(const item in cartItens[items]){
+                try{
+                    if(cartItens[items][item] > 0){
+                        setTotalContagem(totalContagem + cartItens[items][item]);
+                    }
+                }catch(error){
+                
+                }
+            }
+        }
+    };
 
     const addToCart = async (itemId, size) => {
 
@@ -17,7 +31,7 @@ const ShopContextProvider = ({ children }) => {
             return
         }
 
-        let cartData = estrutura(cartItens)
+        let cartData = cartItens;
 
         if(cartData[itemId]){
             if(cartData[itemId][size]){
@@ -29,24 +43,14 @@ const ShopContextProvider = ({ children }) => {
             cartData[itemId] = {}
             cartData[itemId][size] = 1
         }
+
         setCartItens(cartData)
+
+        incrementTotalContagem();
     }
 
     const addCart = () => {
-        let totalContagem = 0
-        for(const items in cartItens){
-            for(const item in cartItens[items]){
-                try{
-                    if(cartItens[items][item] > 0){
-                        totalContagem += cartItens[items][item]
-
-                    }
-                }catch(error){
-                
-                }
-            }
-        }
-        return totalContagem
+        return totalContagem;
     }
 
     const value = {
