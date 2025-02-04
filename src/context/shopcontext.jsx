@@ -1,4 +1,4 @@
-import { createContext, useState, UseEffect } from "react";
+import { createContext, useState } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 
@@ -7,44 +7,31 @@ export const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
-    const [cartItens, setCartItens] = useState({})
-    const [totalContagem, setTotalContagem] = useState(0);
+    const [cartItems, setCartItems] = useState({});
 
-
-    const addToCart = async (itemId, size) => {
-
-        if(!size){
-            toast.error('Selecione o Tamanho do Produto!')
-            return
+    const addToCart = (itemId, size) => {
+        if (!size) {
+            toast.error('Selecione o Tamanho do Produto!');
+            return;
         }
 
-        let cartData = cartItens
+        setCartItems((prevCart) => {
+            const newCart = { ...prevCart };
 
-        if(cartData[itemId]){
-            if(cartData[itemId][size]){
-                cartData[itemId] [size] += 1
-            }else{
-                cartData[itemId][size] = 1
+            if (!newCart[itemId]) {
+                newCart[itemId] = {};
             }
-        }else{
-            cartData[itemId] = {}
-            cartData[itemId][size] = 1
-        }
-        setCartItens(cartData)
-    }
 
-    const incrementTotalContagem = () => {
-        for(const items in cartItens){
-            for(const item in cartItens[items]){
-                try{
-                    if(cartItens[items][item] > 0){
-                        setTotalContagem(totalContagem + cartItens[items][item]);
-                    }
-                }catch(error){
+            newCart[itemId][size] = (newCart[itemId][size] || 0) + 1;
 
-                }
-            }
-        }
+            return newCart;
+        });
+    };
+
+    const getTotalCartCount = () => {
+        return Object.values(cartItems).reduce((total, sizes) => {
+            return total + Object.values(sizes).reduce((sum, quantity) => sum + quantity, 0);
+        }, 0);
     };
 
     const value = {
@@ -55,11 +42,10 @@ const ShopContextProvider = ({ children }) => {
         setSearch,
         showSearch,
         setShowSearch,
-        cartItens,
+        cartItems,
         addToCart,
-        incrementTotalContagem
+        getTotalCartCount
     };
-    
 
     return (
         <ShopContext.Provider value={value}>
