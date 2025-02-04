@@ -28,6 +28,40 @@ const ShopContextProvider = ({ children }) => {
         });
     };
 
+    const updateCart = (itemId, size, newQuantity) => {
+        setCartItems((prevCart) => {
+            const newCart = { ...prevCart };
+
+            if (newQuantity <= 0) {
+                delete newCart[itemId][size];
+
+                if (Object.keys(newCart[itemId]).length === 0) {
+                    delete newCart[itemId];
+                }
+            } else {
+                newCart[itemId][size] = newQuantity;
+            }
+
+            return newCart;
+        });
+    };
+
+    const removeFromCart = (itemId, size) => {
+        setCartItems((prevCart) => {
+            const newCart = { ...prevCart };
+
+            if (newCart[itemId]) {
+                delete newCart[itemId][size];
+
+                if (Object.keys(newCart[itemId]).length === 0) {
+                    delete newCart[itemId];
+                }
+            }
+
+            return newCart;
+        });
+    };
+
     const getTotalCartCount = () => {
         return Object.values(cartItems).reduce((total, sizes) => {
             return total + Object.values(sizes).reduce((sum, quantity) => sum + quantity, 0);
@@ -44,6 +78,8 @@ const ShopContextProvider = ({ children }) => {
         setShowSearch,
         cartItems,
         addToCart,
+        updateCart,
+        removeFromCart,
         getTotalCartCount
     };
 
