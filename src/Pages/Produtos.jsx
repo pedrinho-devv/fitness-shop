@@ -5,7 +5,7 @@ import { assets } from "../assets/assets";
 
 const Produtos = () => {
   const { produtosId } = useParams();
-  const { products } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [produtosData, setProdutosData] = useState(null);
   const [image, setImage] = useState("");
 
@@ -14,7 +14,7 @@ const Produtos = () => {
       const foundProduct = products.find((item) => item._id.trim() === String(produtosId).trim());
       if (foundProduct) {
         setProdutosData(foundProduct);
-        setImage(foundProduct.image?.[0] || ""); // Evita erro caso image seja undefined
+        setImage(foundProduct.image?.[0] || "");
       }
     }
   }, [produtosId, products]);
@@ -57,7 +57,19 @@ const Produtos = () => {
             {[...Array(5)].map((_, i) => (
               <img key={i} src={assets.star_icon} alt="Star" className="w-3.5" />
             ))}
+            <img src={assets.star_dull_icon} className="w-3.5" alt="star" />
+            <p className="pl-2">(122)</p>
           </div>
+          <p className="mt-5 text-3xl font-medium">{currency}{produtosData.price}</p>
+        <p className="mt-5 text-gray-500 md:w-4/5">{produtosData.description}</p>
+        <div className="flex flex-col gap-4 my-8">
+          <p className=""> Selecione o Tamanho</p>
+          <div className="flex gap-2">
+            {produtosData.sizes.map((item, index)=>(
+              <button className={`border py-2 px-4 bg-gray-100 hover:bg-gray-700 transition-all ease-in-out hover:text-white`} key={index}>{item}</button>
+            ))}
+          </div>
+        </div>
         </div>
       </div>
     </div>
