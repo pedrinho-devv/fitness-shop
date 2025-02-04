@@ -6,13 +6,19 @@ import Title from "../components/Title";
 const Cart = () => {
   const { products, currency, cartItems, updateCart, removeFromCart } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const tempData = [];
+    let total = 0;
 
     Object.entries(cartItems).forEach(([itemId, sizes]) => {
       Object.entries(sizes).forEach(([size, quantity]) => {
         if (quantity > 0) {
+          const productData = products.find((product) => product._id === itemId);
+          if (productData) {
+            total += productData.price * quantity;
+          }
           tempData.push({
             _id: itemId,
             size,
@@ -23,7 +29,8 @@ const Cart = () => {
     });
 
     setCartData(tempData);
-  }, [cartItems]);
+    setTotalPrice(total);
+  }, [cartItems, products]);
 
   return (
     <div className="border-t pt-14">
@@ -71,8 +78,11 @@ const Cart = () => {
         )}
       </div>
       {cartData.length > 0 && (
-        <div className="flex justify-end mt-6">
-          <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Finalizar Compra</button>
+        <div className="mt-6">
+          <p className="text-xl font-bold text-right">Total: {currency} {totalPrice.toFixed(2)}</p>
+          <div className="flex justify-end mt-4">
+            <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Finalizar Compra</button>
+          </div>
         </div>
       )}
     </div>
