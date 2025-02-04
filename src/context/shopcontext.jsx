@@ -57,7 +57,7 @@ const ShopContextProvider = ({ children }) => {
         setShowSearch,
         cartItens,
         addToCart,
-        addCart
+        incrementTotalContagem
     };
     
 
