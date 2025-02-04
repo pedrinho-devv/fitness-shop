@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/shopcontext";
 import { assets } from "../assets/assets";
+import ProdutosR from "../components/ProdutosR";
 
 const Produtos = () => {
   const { produtosId } = useParams();
@@ -126,7 +127,7 @@ const Produtos = () => {
           </p>
         </div>
       </div>
-      
+      <ProdutosR category={produtosData.category} subCategory={produtosData.subCategory}/>
     </div>
   );
 };
