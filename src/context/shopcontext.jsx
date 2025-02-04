@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, UseEffect } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 
@@ -8,6 +8,7 @@ const ShopContextProvider = ({ children }) => {
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [cartItens, setCartItens] = useState({})
+    const [totalContagem, setTotalContagem] = useState(0);
 
 
     const addToCart = async (itemId, size) => {
@@ -17,7 +18,7 @@ const ShopContextProvider = ({ children }) => {
             return
         }
 
-        let cartData = estrutura(cartItens)
+        let cartData = cartItens
 
         if(cartData[itemId]){
             if(cartData[itemId][size]){
@@ -32,22 +33,19 @@ const ShopContextProvider = ({ children }) => {
         setCartItens(cartData)
     }
 
-    const addCart = () => {
-        let totalContagem = 0
+    const incrementTotalContagem = () => {
         for(const items in cartItens){
             for(const item in cartItens[items]){
                 try{
                     if(cartItens[items][item] > 0){
-                        totalContagem += cartItens[items][item]
-
+                        setTotalContagem(totalContagem + cartItens[items][item]);
                     }
                 }catch(error){
-                
+
                 }
             }
         }
-        return totalContagem
-    }
+    };
 
     const value = {
         products,
