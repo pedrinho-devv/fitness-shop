@@ -6,7 +6,7 @@ import ProdutosR from "../components/ProdutosR";
 
 const Produtos = () => {
   const { produtosId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [produtosData, setProdutosData] = useState(null);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -94,7 +94,7 @@ const Produtos = () => {
               ))}
             </div>
           </div>
-          <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 rounded-md">
+          <button onClick={()=>addToCart(produtosData._id, size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 rounded-md">
             Adicionar ao Carrinho
           </button>
           <hr className="mt-8 sm:w-4/5" />
