@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import {
   FaFacebookSquare,
@@ -18,12 +19,14 @@ const Footer = () => {
         </div>
         <div className="flex flex-col sm:items-start items-center">
           <p className="text-xl font-medium mb-5">Loja</p>
+          <NavLink>
           <ul className="flex flex-col gap-1 text-gray-600 text-center sm:text-left">
-            <li>Início</li>
-            <li>Sobre Nós</li>
-            <li>Coleção</li>
-            <li>Novidades</li>
+            <li className="cursor-pointer hover:text-gray-800" to='/Home'>Início</li>
+            <li className="cursor-pointer hover:text-gray-800" to='/News'>Coleção</li>
+            <li className="cursor-pointer hover:text-gray-800" to='/Sobre'>Sobre Nós</li>
+            <li className="cursor-pointer hover:text-gray-800" to='/Contato'>Contato</li>
           </ul>
+          </NavLink>
         </div>
         <div className="flex flex-col sm:items-start items-center">
           <p className="text-xl font-medium mb-5">Entre em Contato</p>
